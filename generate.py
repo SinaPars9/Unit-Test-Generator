@@ -1,6 +1,4 @@
 import os
-from unittest import result
-from altair import Time
 from dotenv import load_dotenv
 from openai import OpenAI
 import subprocess
@@ -119,30 +117,5 @@ def generate_and_run(code, module_name, model):
     stats = parse_test_result(result)
 
     return test, result, stats
-
-#script\terminal use for testing 
-def main():
-    model = "inclusionai/ling-3.0-flash-sante:free"
-
-    code = """def divide(a, b):
-        if b == 0:
-            raise ValueError("Cannot divide by zero")
-        return a / b
-
-    def calculate_discount(price, discount):
-        if price < 0 or discount < 0 or discount > 100:
-            raise ValueError("Invalid input")
-        return price * (1 - discount / 100)"""
-    
-    module_name = "calculator"
-
-    test, result, stats = generate_and_run(code, module_name, model)
-
-    if test is None:
-        print("Test generation failed.")
-    else:
-        print(test)
-        print(result)
-        print(stats)
 
 
