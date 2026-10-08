@@ -97,6 +97,7 @@ Then open the local Gradio interface in your browser.
    * Generated tests
    * Pytest output
    * Test statistics
+**Important:** The specified module must actually exist and be importable. Providing only the module name is not sufficient.
 
 ## Example
 
